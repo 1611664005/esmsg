@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../esmsg/esmsg.css">
+    <script src="../esmsg/lib/jquery.js"></script>
+    <script src="../esmsg/esmsg.js"></script>
+    <style>
+        button{
+            margin: 6px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 信息提示 -->
+    <button class="btn1">提示（esmsg.msg）</button>
+
+    <button class="btn2">普通窗口（esmsg.alert）</button>
+    <button class="btn3">成功窗口（esmsg.alert）</button>
+    <button class="btn4">警告窗口（esmsg.alert）</button>
+    <button class="btn5">失败窗口（esmsg.alert）</button>
+    <button class="btn6">普通窗口+成功窗口（esmsg.alert）</button>
+    <button class="btn7">加载中（esmsg.loading）</button>
+    <script>
+        $('.btn1').click(function(){
+            esmsg.msg("欢迎使用EsMsg！");
+        });
+        $('.btn2').click(function(){
+            
+            esmsg.alert({text:"十年磨一剑，EsMsg！",background:true});
+        });
+        $('.btn3').click(function(){
+            
+            esmsg.alert({text:"十年磨一剑，EsMsg！",type:'success'});
+        });
+        $('.btn4').click(function(){
+            
+            esmsg.alert({text:"十年磨一剑，EsMsg！",type:'warning'});
+        });
+        $('.btn5').click(function(){
+            
+            esmsg.alert({text:"十年磨一剑，EsMsg！",type:'error'});
+        });
+        $('.btn6').click(function(){
+            esmsg.alert({text:"确定要删除该产品吗？",yes:function(){
+                esmsg.loading();
+                setTimeout(() => {
+                    esmsg.close();
+                    esmsg.alert({text:'删除成功！',type:'success'});
+                }, 3000);
+                
+            }});
+        });
+        $('.btn7').click(function(){
+            esmsg.loading();
+            setTimeout(() => {
+                esmsg.close();
+            }, 3000);
+        });
+        
+    </script>
+    
+</body>
+</html>
