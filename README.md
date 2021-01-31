@@ -12,6 +12,9 @@
 - test   [调用事例]
     - index.html [插件调用事例]
 
+## 图示
+![image text](https://github.com/1611664005/esmsg/blob/master/tu.gif)
+
 ## 开放函数
 
 普通提示 [esmsg.msg]
