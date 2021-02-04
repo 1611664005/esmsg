@@ -1,5 +1,13 @@
-//获取js路径
-console.log(window.location.href);
+
+//获取全局路径
+var path = $("script").eq(-1).attr("src").replace(/[^\/]+$/,""); 
+//引入css文件
+var link = document.createElement('link');
+link.href = path + 'esmsg.css';
+link.rel = 'stylesheet';
+link.type = 'text/css';
+$('head').append(link);
+
 var esmsg = {
     uid:120,
     msgClass:"",
@@ -40,12 +48,12 @@ var esmsg = {
                         ${obj.title ? obj.title : '提示：'}
                     </div>
                     <div class="r">
-                        <img src="../esmsg/img/close.png" alt="">
+                        <img src="${path}img/close.png" alt="">
                     </div>
                 </div>
                 <div class="alert-box-main">
                     <div class="l ${obj.type ? obj.type : ''}">
-                        <img src="${obj.type ? '../esmsg/img/' + obj.type + '.png' : ''}" alt="">
+                        <img src="${obj.type ? path+'img/' + obj.type + '.png' : ''}" alt="">
                     </div>
                     <div class="r">
                         ${obj.text}
